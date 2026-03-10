@@ -1,0 +1,48 @@
+# Large model files (download from HuggingFace instead)
+llm/*
+!llm/.gitkeep
+
+# Training outputs and checkpoints (reproducible)
+outputs/*
+!outputs/.gitkeep
+*.pt
+*.bin
+*.safetensors
+
+# Experiment tracking
+wandb/
+logs/
+
+# Cache files (regeneratable)
+cache/
+*.pkl
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Keep small config/model files if needed
+!models/*.json
+!models/*.yaml
