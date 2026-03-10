@@ -20,6 +20,43 @@
 </p>
 
 
+<!-- Results Section -->
+<h3 align="center">📊 Results</h3>
+
+<p align="center">
+  With only 20% reward labels, MemReward approaches Oracle (100% labels) performance across both in-domain and out-of-domain settings.
+</p>
+
+<p align="center">
+  <img src="figure/annotation_accuracy.png" width="95%">
+</p>
+
+<p align="center">
+  Per-benchmark accuracy improvement of MemReward over R1-p baseline (Qwen2.5-1.5B).
+</p>
+
+<p align="center">
+  <img src="figure/benchmark_delta.png" width="60%">
+</p>
+
+<p align="center">
+  Scaling the ground-truth label ratio from 20% to 100% on Qwen2.5-3B.
+</p>
+
+<p align="center">
+  <img src="figure/gt_ratio_bar.png" width="55%">
+</p>
+
+<p align="center">
+  Ablation study on graph architecture variants (Qwen2.5-3B and Qwen2.5-1.5B).
+</p>
+
+<p align="center">
+  <img src="figure/radar_ablation_3b.png" width="45%">
+  <img src="figure/radar_ablation_1.5b.png" width="45%">
+</p>
+
+
 ## 📂 Project Structure
 
 ```
