@@ -524,7 +524,7 @@ def main():
     from huggingface_hub import login
 
     # Login to HuggingFace for gated models
-    HF_TOKEN = "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"
+    HF_TOKEN = ""
     try:
         login(token=HF_TOKEN)
     except Exception as e:

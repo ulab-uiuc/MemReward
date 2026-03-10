@@ -1,11 +1,5 @@
 # MemReward
 
-<p align="center">
-    <a href="https://github.com/XXX/MemReward/blob/main/LICENSE">
-        <img alt="License" src="https://img.shields.io/badge/LICENSE-MIT-green">
-    </a>
-</p>
-
 
 <!-- Overview Section -->
 <h3 align="center">📌 Overview</h3>
@@ -84,7 +78,7 @@ python -c "import torch, verl, vllm; print(f'PyTorch: {torch.__version__}, CUDA:
 
 ## 🔄 Reproduce Paper Results
 
-To reproduce results without running the full pipeline, download pre-computed data and trained checkpoints from [memreward](https://huggingface.co/datasets/ulab-ai/memreward).
+Download the complete project (code, data, and trained checkpoints) directly from [HuggingFace](https://huggingface.co/datasets/ulab-ai/memreward):
 
 ### Step 1: Download from HuggingFace
 
@@ -92,67 +86,33 @@ To reproduce results without running the full pipeline, download pre-computed da
 # Install git-lfs if needed
 git lfs install
 
-# Clone the repository (contains configs/, data/, and outputs/)
+# Clone the complete repository
 git clone https://huggingface.co/datasets/ulab-ai/memreward
+cd memreward
 ```
 
-The HuggingFace repo contains three folders:
+The repository contains everything needed for reproduction:
 
 | Folder | Contents | Size |
 |--------|----------|------|
 | `configs/` | GT identifier JSONs for query routing (20%-70% ratios) | 212K |
 | `data/` | Sampled datasets, VERL-formatted training data, generalization data | 56M |
 | `outputs/` | GNN embeddings + trained VERL checkpoints (Qwen-3B and Qwen-1.5B) | ~93G |
+| `scripts/` | Full pipeline scripts (data prep, GNN training, VERL training, evaluation) | — |
+| `src/` | Core reward_graph library | — |
 
-### Step 2: Download LLMs
+### Step 2: Setup Environment and Download LLMs
 
 ```bash
+# Setup environment (see Preliminary section above)
+
+# Download LLMs
 python scripts/Step1_llm_download/download_models.py
 ```
 
 This downloads `Qwen2.5-3B-Instruct` and `Qwen2.5-1.5B-Instruct` to `llm/`.
 
-### Step 3: Place Files
-
-Copy the downloaded folders to the project root:
-
-```bash
-cp -r memreward/configs/* $PROJECT_ROOT/configs/
-cp -r memreward/data/* $PROJECT_ROOT/data/
-cp -r memreward/outputs/* $PROJECT_ROOT/outputs/
-```
-
-After placement, the directory structure should look like:
-
-```
-$PROJECT_ROOT
-├── llm/
-│   ├── qwen2.5_3b_instruct/
-│   └── qwen2.5_1.5b_instruct/
-├── configs/
-│   ├── gt_identifiers_train20.json            # GT query routing (20%)
-│   └── generalization_gt_identifiers.json
-├── data/
-│   ├── sampled_1500/                          # 1500 queries per dataset (50/20/30 split)
-│   │   ├── gsm8k_sampled_train_full.parquet
-│   │   ├── gsm8k_sampled_valid.parquet
-│   │   ├── gsm8k_sampled_test.parquet
-│   │   └── ...                                # 10 datasets × 3 splits
-│   ├── qwen2.5-3b/
-│   │   ├── verl_train_full_gt/                # 100% GT VERL data
-│   │   ├── verl_train_partial_gt/             # 20% GT only VERL data
-│   │   └── verl_train_mix/                    # 20% GT + 80% GNN VERL data
-│   ├── qwen2.5-1.5b/                          # Same structure as qwen2.5-3b
-│   └── generalization/                        # NuminaMath, PIQA, SIQA
-├── outputs/
-│   ├── gnn_standard_domains/                  # LLM responses + embeddings
-│   ├── qwen2.5-3b/                            # Trained checkpoints (11 experiments)
-│   └── qwen2.5-1.5b/                          # Trained checkpoints (6 experiments)
-└── src/
-    └── reward_graph/                          # Core library
-```
-
-### Step 4: Evaluate
+### Step 3: Evaluate
 
 ```bash
 # Evaluate Qwen-3B MemReward (20% GT + 80% GNN) on standard benchmarks

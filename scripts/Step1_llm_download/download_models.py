@@ -18,7 +18,7 @@ MODELS = {
     "qwen2.5_1.5b_instruct": "Qwen/Qwen2.5-1.5B-Instruct",
 }
 
-HF_TOKEN = os.environ.get("HF_TOKEN", "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")
+HF_TOKEN = os.environ.get("HF_TOKEN", "")
 
 def main():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
