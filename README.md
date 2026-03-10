@@ -1,4 +1,20 @@
-# MemReward
+<h1 align="center">MemReward</h1>
+
+<div align="center">
+  <p>
+    <a href="https://huggingface.co/datasets/ulab-ai/memreward"><img src="https://img.shields.io/badge/🤗_HuggingFace-Dataset-FFD21E?style=for-the-badge" alt="HuggingFace"></a>
+    <a href="https://www.python.org/downloads/release/python-3120/"><img src="https://img.shields.io/badge/PYTHON-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"></a>
+    <a href="https://github.com/ulab-uiuc/MemReward/pulls"><img src="https://img.shields.io/badge/PRs-WELCOME-orange?style=for-the-badge" alt="PRs"></a>
+  </p>
+</div>
+
+
+## 🔗 Links
+
+- [Overview](#-overview) | [Method](#-method) | [Results](#-results)
+- [Project Structure](#-project-structure) | [Environment Setup](#-preliminary)
+- [Reproduce Paper Results](#-reproduce-paper-results) | [Train from Scratch](#-train-from-scratch)
+- [Acknowledgement](#-acknowledgement) | [Citation](#-citation)
 
 
 <!-- Overview Section -->
@@ -30,6 +46,34 @@
 <p align="center">
   <img src="figure/annotation_accuracy.png" width="95%">
 </p>
+
+#### In-Domain Results (10 Benchmarks)
+
+| **Method** | **GSM8K** | **GSM-Sym** | **MATH** | **MMLU** | **CSQA** | **OBQA** | **ARC-C** | **GPQA** | **HumanEval+** | **MBPP+** | **Avg** |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| *Qwen2.5-3B-Instruct* | | | | | | | | | | | |
+| R1-p (20% GT) | 92.89 | 84.67 | 54.67 | 71.78 | 77.33 | 78.44 | 80.00 | 21.67 | 64.10 | 65.00 | 75.67 |
+| **MemReward (Ours)** | 92.89 | 86.44 | **61.11** | 72.00 | 74.44 | 81.78 | 80.44 | **30.00** | 61.54 | 63.75 | **77.02** |
+| R1-Oracle (100% GT) | 92.89 | 90.22 | 60.33 | 72.22 | 79.11 | 83.11 | 84.00 | 30.00 | 71.79 | 73.75 | 79.12 |
+| *Qwen2.5-1.5B-Instruct* | | | | | | | | | | | |
+| R1-p (20% GT) | 77.11 | 62.89 | 44.44 | 53.33 | 70.22 | 68.67 | 71.56 | 20.00 | 38.46 | 55.00 | 62.72 |
+| **MemReward (Ours)** | **88.67** | **77.78** | 50.89 | 54.67 | 72.44 | 70.00 | 72.67 | **23.33** | 43.59 | 55.00 | **68.10** |
+| R1-Oracle (100% GT) | 86.44 | 75.33 | 53.11 | 66.44 | 74.44 | 74.00 | 74.89 | 15.00 | 53.85 | 56.25 | 70.47 |
+
+#### Out-of-Domain Results (3 Benchmarks)
+
+| **Method** | **NuminaMath** | **SIQA** | **PIQA** | **Avg** |
+|:---|:---:|:---:|:---:|:---:|
+| *Qwen2.5-3B-Instruct* | | | | |
+| R1-p (20% GT) | 36.44 | 74.67 | 82.22 | 64.44 |
+| **MemReward (Ours)** | **42.22** | **76.89** | 81.78 | **66.96** |
+| R1-Oracle (100% GT) | 39.33 | 76.89 | 82.00 | 66.07 |
+| *Qwen2.5-1.5B-Instruct* | | | | |
+| R1-p (20% GT) | 31.56 | 72.67 | 72.22 | 58.81 |
+| **MemReward (Ours)** | **34.67** | 74.44 | **79.33** | **62.81** |
+| R1-Oracle (100% GT) | 32.00 | 74.89 | 79.11 | 62.00 |
+
+> MemReward **surpasses Oracle** on out-of-domain tasks for both model scales, demonstrating that GNN-predicted rewards improve generalization beyond full supervision.
 
 <p align="center">
   Per-benchmark accuracy improvement of MemReward over R1-p baseline (Qwen2.5-1.5B).
@@ -235,6 +279,29 @@ The implementation of **MemReward** is built upon [VERL](https://github.com/volc
 We sincerely appreciate the efforts of these teams for their contributions to open-source research and development.
 
 
-## Citation
+## 🤝 Contribution
 
-Coming soon.
+We welcome contributions from the community! If you find bugs, have feature requests, or want to improve MemReward, please open an issue or submit a pull request.
+
+<div align="center">
+  <a href="https://github.com/ulab-uiuc/MemReward/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=ulab-uiuc/MemReward" />
+  </a>
+</div>
+
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=ulab-uiuc/MemReward&type=Date)](https://star-history.com/#ulab-uiuc/MemReward&Date)
+
+
+## 📚 Citation
+
+```bibtex
+@inproceedings{luo2026memreward,
+  title     = {MemReward: Graph-Based Experience Memory for LLM Reward Prediction with Limited Labels},
+  author    = {Tianyang Luo and Tao Feng and Zhigang Hua and Yan Xie and Shuang Yang and Ge Liu and Jiaxuan You},
+  booktitle = {ICML},
+  year      = {2026}
+}
+```
