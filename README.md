@@ -290,23 +290,24 @@ We welcome contributions from the community! If you find bugs, have feature requ
 
 <div align="center">
   <a href="https://github.com/ulab-uiuc/MemReward/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=ulab-uiuc/MemReward" />
+    <img src="https://contrib.rocks/image?repo=ulab-uiuc/MemReward&max=500" />
   </a>
 </div>
 
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=ulab-uiuc/MemReward&type=Date)](https://star-history.com/#ulab-uiuc/MemReward&Date)
+<div align="center">
+  <a href="https://star-history.com/#ulab-uiuc/MemReward&Date">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ulab-uiuc/MemReward&type=Date&theme=dark" />
+      <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=ulab-uiuc/MemReward&type=Date" />
+      <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=ulab-uiuc/MemReward&type=Date" />
+    </picture>
+  </a>
+</div>
 
 
 ## 📚 Citation
 
-```bibtex
-@inproceedings{luo2026memreward,
-  title     = {MemReward: Graph-Based Experience Memory for LLM Reward Prediction with Limited Labels},
-  author    = {Tianyang Luo and Tao Feng and Zhigang Hua and Yan Xie and Shuang Yang and Ge Liu and Jiaxuan You},
-  booktitle = {ICML},
-  year      = {2026}
-}
-```
+TBD
