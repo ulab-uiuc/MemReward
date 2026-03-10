@@ -272,6 +272,11 @@ python scripts/Step6_verl_evaluation/merge_and_evaluate_detailed.py \
 ```
 
 
+## 🔧 Advanced Configuration
+
+> **Tip:** The codebase supports optional answer-level features (e.g., answer consensus across rollouts) that can be configured per domain via `answer_feat_dim` in `src/reward_graph/rewards/utils/gnn_models.py`.
+
+
 ## 📝 Acknowledgement
 
 The implementation of **MemReward** is built upon [VERL](https://github.com/volcengine/verl), [vLLM](https://github.com/vllm-project/vllm), [PyTorch Geometric](https://github.com/pyg-team/pytorch_geometric), and [Qwen](https://github.com/QwenLM/Qwen2.5).
