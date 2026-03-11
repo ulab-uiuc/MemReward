@@ -52,7 +52,7 @@ export WARMUP_EMBEDDINGS_PATH="$PROJECT_ROOT/outputs/gnn_standard_domains/qwen3b
 echo "Warmup embeddings: $WARMUP_EMBEDDINGS_PATH"
 
 # WandB config
-export WANDB_API_KEY=25da2358bf731b4929ae5b9609cbca56aa2da364
+export WANDB_API_KEY="${WANDB_API_KEY}"
 export WANDB_PROJECT=verl_grpo_reward_comparison
 export WANDB_NAME=qwen2.5_3b_50gt_50gnn_dot_product_hard
 export WANDB_INIT_TIMEOUT=300
@@ -67,7 +67,7 @@ OUTPUT_DIR="$PROJECT_ROOT/outputs/qwen2.5-3b/verl_grpo_50gt_50gnn_dot_product_ha
 echo "============================================================"
 echo "Step 1: Fixing is_train fields in training/validation data..."
 echo "============================================================"
-/data/taofeng2/venvs/rewardgraph/bin/python "$PROJECT_ROOT/scripts/Step5_verl_training/utils/fix_validation_is_train.py" --dataset qwen2.5_3b_standard --no-backup
+python3 "$PROJECT_ROOT/scripts/Step5_verl_training/utils/fix_validation_is_train.py" --dataset qwen2.5_3b_standard --no-backup
 if [ $? -ne 0 ]; then
     echo "Failed to fix is_train fields. Please check the error above."
     exit 1
@@ -78,7 +78,7 @@ echo ""
 echo "============================================================"
 echo "Step 2: Verifying is_train fields consistency..."
 echo "============================================================"
-/data/taofeng2/venvs/rewardgraph/bin/python "$PROJECT_ROOT/scripts/Step5_verl_training/utils/verify_is_train_fields.py" 2>&1 | grep -A 20 "Standard Mix"
+python3 "$PROJECT_ROOT/scripts/Step5_verl_training/utils/verify_is_train_fields.py" 2>&1 | grep -A 20 "Standard Mix"
 VERIFY_EXIT_CODE=${PIPESTATUS[0]}
 if [ $VERIFY_EXIT_CODE -ne 0 ]; then
     echo "Verification failed. Please check the error above."
@@ -91,8 +91,8 @@ echo ""
 echo "============================================================"
 echo "Step 3: Fixing reward_model format..."
 echo "============================================================"
-/data/taofeng2/venvs/rewardgraph/bin/python "$PROJECT_ROOT/scripts/Step5_verl_training/utils/fix_reward_model_format.py" "$DATA_DIR/train.parquet"
-/data/taofeng2/venvs/rewardgraph/bin/python "$PROJECT_ROOT/scripts/Step5_verl_training/utils/fix_reward_model_format.py" "$DATA_DIR/valid.parquet"
+python3 "$PROJECT_ROOT/scripts/Step5_verl_training/utils/fix_reward_model_format.py" "$DATA_DIR/train.parquet"
+python3 "$PROJECT_ROOT/scripts/Step5_verl_training/utils/fix_reward_model_format.py" "$DATA_DIR/valid.parquet"
 echo "reward_model format fixed"
 echo ""
 
@@ -110,7 +110,7 @@ done
 echo "All GNN artifacts verified"
 echo ""
 
-/data/taofeng2/venvs/rewardgraph/bin/python -m verl.trainer.main_ppo \
+python3 -m verl.trainer.main_ppo \
     algorithm.adv_estimator=grpo \
     trainer.val_before_train=False \
     data.train_files=$DATA_DIR/train.parquet \
@@ -168,5 +168,5 @@ echo ""
 echo "============================================================"
 echo "Training complete. Cleaning up ray..."
 echo "============================================================"
-/data/taofeng2/venvs/rewardgraph/bin/ray stop --force 2>/dev/null
+ray stop --force 2>/dev/null
 echo "Ray stopped. GPUs released."

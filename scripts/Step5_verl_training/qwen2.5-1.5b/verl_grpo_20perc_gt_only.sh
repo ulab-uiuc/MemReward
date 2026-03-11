@@ -46,7 +46,7 @@ export TORCH_NCCL_HEARTBEAT_TIMEOUT_SEC=3600
 export TORCH_DIST_INIT_BARRIER=0
 
 # WandB config
-export WANDB_API_KEY=25da2358bf731b4929ae5b9609cbca56aa2da364
+export WANDB_API_KEY="${WANDB_API_KEY}"
 export WANDB_PROJECT=verl_grpo_reward_comparison
 export WANDB_NAME=qwen2.5_1.5b_20perc_gt_only
 export WANDB_INIT_TIMEOUT=300
@@ -59,11 +59,11 @@ OUTPUT_DIR="$PROJECT_ROOT/outputs/qwen2.5-1.5b/verl_grpo_20perc_gt_only"
 
 # Fix reward_model format (JSON string -> dict)
 echo "Fixing reward_model format in training data..."
-/data/taofeng2/venvs/rewardgraph/bin/python "$PROJECT_ROOT/scripts/Step5_verl_training/utils/fix_reward_model_format.py" "$DATA_DIR/train.parquet"
-/data/taofeng2/venvs/rewardgraph/bin/python "$PROJECT_ROOT/scripts/Step5_verl_training/utils/fix_reward_model_format.py" "$DATA_DIR/valid.parquet"
+python3 "$PROJECT_ROOT/scripts/Step5_verl_training/utils/fix_reward_model_format.py" "$DATA_DIR/train.parquet"
+python3 "$PROJECT_ROOT/scripts/Step5_verl_training/utils/fix_reward_model_format.py" "$DATA_DIR/valid.parquet"
 echo ""
 
-/data/taofeng2/venvs/rewardgraph/bin/python -m verl.trainer.main_ppo \
+python3 -m verl.trainer.main_ppo \
     algorithm.adv_estimator=grpo \
     trainer.val_before_train=False \
     data.train_files=$DATA_DIR/train.parquet \
@@ -119,5 +119,5 @@ echo ""
 echo "============================================================"
 echo "Training complete. Cleaning up ray..."
 echo "============================================================"
-/data/taofeng2/venvs/rewardgraph/bin/ray stop --force 2>/dev/null
+ray stop --force 2>/dev/null
 echo "Ray stopped. GPUs released."

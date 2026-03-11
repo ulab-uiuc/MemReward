@@ -11,10 +11,11 @@
 #   ./generate_train_parallel.sh --datasets "gsm8k math"   # Only gsm8k and math
 #   ./generate_train_parallel.sh --gpus "0,1,2,3"         # Use specific GPUs (round-robin)
 
-cd /mnt/disk2_from_server2/taofeng2/efficientrewardgraphv0
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+cd "$SCRIPT_DIR/../../.."
 
 export VLLM_USE_V1=0
-PYTHON=/data/taofeng2/venvs/rewardgraph/bin/python
+PYTHON="${PYTHON:-python3}"
 
 # Default values
 MODEL_TYPE="qwen3b"

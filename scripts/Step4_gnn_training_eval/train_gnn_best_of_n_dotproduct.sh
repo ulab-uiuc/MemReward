@@ -39,7 +39,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 cd "$PROJECT_ROOT"
 
-PYTHON=/data/taofeng2/venvs/rewardgraph/bin/python
+PYTHON="${PYTHON:-python3}"
 TRAIN_SCRIPT=scripts/Step4_gnn_training_eval/train_gnn_from_cache_dotproduct.py
 OUTPUT_DIR=outputs/gnn_standard_domains/${MODEL_TYPE}
 

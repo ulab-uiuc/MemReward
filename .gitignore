@@ -39,6 +39,9 @@ ENV/
 .DS_Store
 Thumbs.db
 
+# Dev sync script (contains local paths)
+sync_from_dev.sh
+
 # Jupyter
 .ipynb_checkpoints/
 *.ipynb
