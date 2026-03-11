@@ -14,7 +14,7 @@ from huggingface_hub import login
 from pathlib import Path
 
 # Login with token
-HF_TOKEN = ""
+HF_TOKEN = os.environ.get("HF_TOKEN", "")
 login(token=HF_TOKEN)
 
 # Project root (relative to this script: scripts/Step2_original_data_download/)
