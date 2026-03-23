@@ -310,4 +310,16 @@ We welcome contributions from the community! If you find bugs, have feature requ
 
 ## 📚 Citation
 
-TBD
+If you find MemReward useful, please cite our paper:
+
+```bibtex
+@misc{luo2026memrewardgraphbasedexperiencememory,
+      title={MemReward: Graph-Based Experience Memory for LLM Reward Prediction with Limited Labels},
+      author={Tianyang Luo and Tao Feng and Zhigang Hua and Yan Xie and Shuang Yang and Ge Liu and Jiaxuan You},
+      year={2026},
+      eprint={2603.19310},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2603.19310},
+}
+```
