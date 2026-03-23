@@ -2,6 +2,7 @@
 
 <div align="center">
   <p>
+    <a href="https://arxiv.org/abs/2603.19310"><img src="https://img.shields.io/badge/arXiv-2603.19310-B31B1B?style=for-the-badge&logo=arxiv&logoColor=white" alt="arXiv"></a>
     <a href="https://huggingface.co/datasets/ulab-ai/memreward"><img src="https://img.shields.io/badge/🤗_HuggingFace-Dataset-FFD21E?style=for-the-badge" alt="HuggingFace"></a>
     <a href="https://www.python.org/downloads/release/python-3120/"><img src="https://img.shields.io/badge/PYTHON-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"></a>
     <a href="https://github.com/ulab-uiuc/MemReward/pulls"><img src="https://img.shields.io/badge/PRs-WELCOME-orange?style=for-the-badge" alt="PRs"></a>
