@@ -41,7 +41,7 @@
 <h3 align="center">📊 Results</h3>
 
 <p align="center">
-  With only 20% reward labels, MemReward approaches Oracle (100% labels) performance across both in-domain and out-of-domain settings.
+  <b>MemReward approaches Oracle performance with only 20% labels.</b>
 </p>
 
 <p align="center">
@@ -88,7 +88,7 @@
 </table>
 
 <p align="center">
-  Ablation study on graph architecture variants (Qwen2.5-3B and Qwen2.5-1.5B).
+  <b>Ablation studies on (a) Qwen2.5-3B and (b) Qwen2.5-1.5B show each architectural component contributes to performance.</b>
 </p>
 
 <p align="center">
