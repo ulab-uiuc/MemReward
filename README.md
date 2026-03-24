@@ -76,21 +76,16 @@
 
 > MemReward **surpasses Oracle** on out-of-domain tasks for both model scales, demonstrating that GNN-predicted rewards improve generalization beyond full supervision.
 
-<p align="center">
-  Per-benchmark accuracy improvement of MemReward over R1-p baseline (Qwen2.5-1.5B).
-</p>
-
-<p align="center">
-  <img src="figure/benchmark_delta.png" width="60%">
-</p>
-
-<p align="center">
-  Scaling the ground-truth label ratio from 20% to 100% on Qwen2.5-3B.
-</p>
-
-<p align="center">
-  <img src="figure/gt_ratio_bar.png" width="55%">
-</p>
+<table>
+<tr>
+<td align="center" width="55%"><b>MemReward consistently improves over R1-p across all 13 benchmarks on Qwen2.5-1.5B.</b></td>
+<td align="center" width="45%"><b>MemReward performance scales with ground-truth label ratio on Qwen2.5-3B.</b></td>
+</tr>
+<tr>
+<td align="center"><img src="figure/benchmark_delta.png" width="100%"></td>
+<td align="center"><img src="figure/gt_ratio_bar.png" width="100%"></td>
+</tr>
+</table>
 
 <p align="center">
   Ablation study on graph architecture variants (Qwen2.5-3B and Qwen2.5-1.5B).
