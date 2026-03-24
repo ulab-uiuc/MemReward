@@ -97,8 +97,7 @@
 </p>
 
 <p align="center">
-  <img src="figure/radar_ablation_3b.png" width="45%">
-  <img src="figure/radar_ablation_1.5b.png" width="45%">
+  <img src="figure/radar_ablation_combined.png" width="90%">
 </p>
 
 
