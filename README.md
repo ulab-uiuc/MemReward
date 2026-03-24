@@ -285,7 +285,7 @@ We welcome contributions from the community! If you find bugs, have feature requ
 
 <div align="center">
   <a href="https://github.com/ulab-uiuc/MemReward/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=ulab-uiuc/MemReward&max=500" />
+    <img src="https://contrib.rocks/image?repo=ulab-uiuc/MemReward&max=500&v=2" />
   </a>
 </div>
 
